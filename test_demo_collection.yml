@@ -6,10 +6,12 @@
       - newswangerd.collection_demo
     tasks:
 
-      - name: Gather some real facts
-        real_facts:
-          name: Richard Stallman
-        register: test_out
+      - name: Gather two facts about R.S.
+        block:
+        - name: Gather fact 1
+          real_facts:
+            name: Richard Stallman
+          register: test_out
 
       - debug:
           msg: "{{ test_out }}"
